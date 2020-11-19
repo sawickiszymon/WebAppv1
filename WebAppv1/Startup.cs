@@ -26,13 +26,9 @@ namespace WebAppv1
         {
             services.AddControllersWithViews();
 
-
             var connStr = Configuration.GetConnectionString("WebAppv1Context");
             System.Console.WriteLine(connStr);
             services.AddDbContext<WebAppv1Context>(options => options.UseSqlServer(connStr));
-
-            //services.AddDbContext<WebAppv1Context>(options =>
-            //        options.UseSqlServer(Configuration.GetConnectionString("WebAppv1Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,10 +38,7 @@ namespace WebAppv1
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+
             app.UseStaticFiles();
 
             app.UseRouting();

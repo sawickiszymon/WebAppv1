@@ -39,7 +39,6 @@ namespace WebAppv1.Controllers
             {
                 return NotFound();
             }
-
             return View(fiction);
         }
 
@@ -50,11 +49,9 @@ namespace WebAppv1.Controllers
         }
 
         // POST: Fictions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Author")] Fiction fiction)
+        public async Task<IActionResult> Create([Bind("Id,Title,Author,FictionType,Description")] Fiction fiction)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +79,9 @@ namespace WebAppv1.Controllers
         }
 
         // POST: Fictions/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author")] Fiction fiction)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,FictionType,Description")] Fiction fiction)
         {
             if (id != fiction.Id)
             {

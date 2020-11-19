@@ -17,15 +17,10 @@ namespace WebAppv1.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Fiction>().HasData(
-                new Fiction { Author = "Seeded Author", Id = 1, Title = "Seeded Title" });
-            modelBuilder.Entity<FictionDetails>().HasData(
-                new FictionDetails { Id = 1, FictionId = 1, Description = "Seeded Description", FictionType = AvailableFictionTypes.Action });
+                new Fiction { Author = "Seeded Author", Id = 1, Title = "Seeded Title", FictionType=AvailableFictionTypes.Action, Description="Seeded Title"});
         }
 
 
         public DbSet<RecApp.Models.Fiction> Fiction { get; set; }
-
-
-        public DbSet<RecApp.Models.FictionDetails> FictionDetails { get; set; }
     }
 }
